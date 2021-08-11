@@ -1,0 +1,24 @@
+.rst-btn-container {
+    margin: 0 auto;
+    width: 100%;
+    justify-content: center;
+}
+
+.rst-btn-container .btn {
+    margin: 3rem auto;
+    display: block;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 1rem;
+    background-color: #eee;
+    color: #505050;
+    border-color: #505050;
+    border-width: 0.125rem;
+}
+
+.rst-btn-container .btn:hover {
+    transition: 0.4s;
+    background-color: #777777;
+    color: #eee;
+    border-color: #777777;
+}

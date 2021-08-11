@@ -1,0 +1,16 @@
+.color-card {
+    height: 10rem;
+    border-radius: 2rem;
+    margin: 0.5rem;
+    display: inline-block;
+    transition: all 0.5s;
+    transition-property: opacity, width, margin-left, margin-right, background-color, visibility;
+}
+
+.color-card .color-card-hard {
+    width: 0rem;
+}
+
+.color-card-normal {
+    width: 10rem;
+}

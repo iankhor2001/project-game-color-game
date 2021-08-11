@@ -1,0 +1,16 @@
+.header-msg {
+    text-align: center;
+    margin: 2rem auto;
+    text-transform: uppercase;
+    transition: color 0.6s ease;
+    /* text-shadow: rgb(139, 139, 139) 1px 1px ; */
+}
+
+.header-msg .display-2 {
+    font-weight: bold;
+}
+
+.header-msg .display-6 {
+    font-weight: 400;
+    padding-top: 1rem;
+}
