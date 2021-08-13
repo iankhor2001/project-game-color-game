@@ -3,7 +3,7 @@
     border-radius: 2rem;
     margin: 0.5rem;
     display: inline-block;
-    transition: all 0.5s;
+    transition-duration: 0.3s;
     transition-property: opacity, width, margin-left, margin-right, background-color, visibility;
 }
 
@@ -13,4 +13,10 @@
 
 .color-card-normal {
     width: 10rem;
+}
+
+.color-card:hover {
+    outline: none;
+    border-color: #EEE;
+    box-shadow: 0 0 10px #EEE;
 }
