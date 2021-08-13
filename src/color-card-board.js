@@ -82,5 +82,12 @@ export default class ColorCardBoard extends Component {
         }
         this.reset();
     }
+
+    showAnswer() {
+        for (let cardElement of this.colorCards) {
+            cardElement.changeColor("#FFF");
+        }
+        this.correctPick = true;
+    }
     
 }

@@ -19,6 +19,9 @@ export default class HeaderMsg extends Component {
         console.log(color);
         this.answerColor.textContent = String(color);
         this.message.textContent = "What's the color?";
+        if (this.timer.style.display == 'block') {
+            this.showTimer();
+        }
     }
 
     showColor(color) {
@@ -38,16 +41,26 @@ export default class HeaderMsg extends Component {
     showTimer() {
         console.log("show timer");
         this.timer.style.display = "block";
-        let countdown = 5;
-        let timerClock = setInterval( () => {
+        this.timer.textContent = "Countdown";
+        let countdown = 3;
+        this.timerClock = setInterval( () => {
             this.timer.textContent = countdown + "s";
             countdown = countdown-1;
+            if(countdown<0) this.fire("timesUp");
         }, 1000);
-        if (countdown<=0) clearInterval(timerClock);
     }
 
     disableTimer() {
+        console.log("disable timer");
         this.timer.style.display = "none";
+        this.timer.textContent = "Countdown";
+        clearInterval(this.timerClock);
+    }
+
+    timesUpFunc(color, mode='wrong') {
+        clearInterval(this.timerClock);
+        this.root.style.color = toComplementColor(color);
+        if (mode == "wrong") this.timer.textContent = "Time's Up!";
     }
 };
 
@@ -58,11 +71,13 @@ function toComplementColor(rgbColor) {
     if (luminance < 7) return "white";
     else return "#222222";
 }
+
 // function toComplementColor(rgbColor) {
 //     let rgbArray = String(rgbColor).substring(4, String(rgbColor).length-1).split(", ");
     // let [r,g,b] = rgbArray.map(complementColor);
 //     return "rgb(" + r + ", " + g + ", " + b + ")";
 // }
+
 function complementColor(color) {
     let colorInt = parseInt(color);
     if (colorInt > 127) {
