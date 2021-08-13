@@ -47,19 +47,22 @@ export default class Main extends Component {
     }
 
     handleModeNormal() {
-        console.log('NORMAL MODE');
+        // console.log('NORMAL MODE');
         this.colorCardBoard.setMode('normal');
+        this.headerMsg.disableTimer();
         this.resetBackgroundColor();
     }
 
     handleModeHard() {
-        console.log('HARD MODE');
+        // console.log('HARD MODE');
         this.colorCardBoard.setMode('hard');
+        this.headerMsg.disableTimer();
         this.resetBackgroundColor();
     }
 
     handleModeExtreme() {
-        console.log('EXTREME MODE');
+        // console.log('EXTREME MODE');
+        this.headerMsg.showTimer();
         this.resetBackgroundColor();
     }
 

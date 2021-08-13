@@ -10,6 +10,7 @@ export default class HeaderMsg extends Component {
         super(root);
         this.answerColor = root.querySelector('.answer-color');
         this.message = root.querySelector('.message');
+        this.timer= root.querySelector('.timer');
         root.style.color = "#FFF";
         this.reset(color); // color is a string of 'RGB(#number)'
     }
@@ -33,7 +34,23 @@ export default class HeaderMsg extends Component {
     showWrongMessage() {
         this.message.textContent = "Try Again!";
     }
+
+    showTimer() {
+        console.log("show timer");
+        this.timer.style.display = "block";
+        let countdown = 5;
+        let timerClock = setInterval( () => {
+            this.timer.textContent = countdown + "s";
+            countdown = countdown-1;
+        }, 1000);
+        if (countdown<=0) clearInterval(timerClock);
+    }
+
+    disableTimer() {
+        this.timer.style.display = "none";
+    }
 };
+
 function toComplementColor(rgbColor) {
     let rgbArray = String(rgbColor).substring(4, String(rgbColor).length-1).split(", ");
     let [r,g,b] = rgbArray;
